@@ -2,7 +2,9 @@ import React from 'react';
 
 const JobSearch = () => (
     <>
+        {/* <<!-- slider Area Start--> */}
         <div class="slider-area ">
+            {/* <!-- Mobile Menu --> */}
             <div class="slider-active">
                 <div class="single-slider slider-height d-flex align-items-center" data-background="assets/img/hero/h1_hero.jpg">
                     <div class="container">
@@ -13,11 +15,13 @@ const JobSearch = () => (
                                 </div>
                             </div>
                         </div>
+                        {/* <!-- Search Box --> */}
                         <div class="row">
                             <div class="col-xl-8">
+                                {/* <!-- form --> */}
                                 <form action="#" class="search-box">
                                     <div class="input-form">
-                                        <input type="text" placeholder="Job Tittle or keyword" />
+                                        <input type="text" placeholder="Job Tittle or keyword"/>
                                     </div>
                                     <div class="select-form">
                                         <div class="select-itms">
@@ -31,8 +35,8 @@ const JobSearch = () => (
                                     </div>
                                     <div class="search-form">
                                         <a href="#">Find job</a>
-                                    </div>
-                                </form>
+                                    </div>	
+                                </form>	
                             </div>
                         </div>
                     </div>

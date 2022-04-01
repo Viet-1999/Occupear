@@ -2382,7 +2382,7 @@ hr {
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
     .footer-padding {
-        padding-top: 170px;
+        padding-top: 50px;
         padding-bottom: 20px
     }
 }
@@ -6863,7 +6863,6 @@ form.search-box .search-form a {
     color: #868c98;
     padding-right: 52px;
     font-size: 16px;
-    margin-bottom: 50px;
     line-height: 1.8
 }
 
