@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import homelogo from './assets/img/logo/logo.png'
+import homelogo from './assets/img/logo/Occupear3.png'
 const NavBar2 = () => (
     <header>
-       <div className="header-area header-transparrent">
-           <div className="headder-top header-sticky">
+        <div className="header-area header-transparrent">
+            <div className="headder-top header-sticky">
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-3 col-md-2">
- 
                             <div className="logo">
-                                <a href="index.html"><img src={homelogo} alt=""/></a>
-                            </div>  
+                                <Link to="/"><img src={homelogo} alt="" /></Link>
+                            </div>
                         </div>
                         <div className="col-lg-9 col-md-9">
                             <div className="menu-wrapper">
@@ -19,21 +18,12 @@ const NavBar2 = () => (
                                 <div className="main-menu">
                                     <nav className="d-none d-lg-block">
                                         <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="job_listing.html">Find a Jobs </a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="#">Page</a>
-                                                <ul className="submenu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-blog.html">Blog Details</a></li>
-                                                    <li><a href="elements.html">Elements</a></li>
-                                                    <li><a href="job_details.html">job Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><Link to="/">Occupear</Link></li>
+                                            <li><Link to="/about">About</Link></li>
+                                            <li><Link to="/articles-list">Article List</Link></li>
                                         </ul>
                                     </nav>
-                                </div>          
+                                </div>
 
                                 <div className="header-btn d-none f-right d-lg-block">
                                     <a href="#" className="btn head-btn1">Register</a>
@@ -47,8 +37,8 @@ const NavBar2 = () => (
                         </div>
                     </div>
                 </div>
-           </div>
-       </div>
+            </div>
+        </div>
     </header>
 );
 

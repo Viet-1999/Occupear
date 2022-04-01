@@ -11,7 +11,7 @@ import ArticlesListPage from './pages/ArticlesListPage';
 import NavBar from './Navbar';
 import NavBar2 from './NavBar2';
 import NotFoundPage from './pages/NotFoundPage';
-// import './App.css';
+import './App.css';
 import './assets/css/bootstrap.min.css';
 import './assets/css/owl.carousel.min.css';
 import './assets/css/slicknav.css';
@@ -34,7 +34,6 @@ class App extends Component {
     return (
       <Router>
         <div id="main" className="App">
-          {/* <div className="App"> */}
           <NavBar2 />
           <div id="page-body">
             <Routes>
