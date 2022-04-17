@@ -8,7 +8,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ArticlePage from './pages/ArticlePage';
 import ArticlesListPage from './pages/ArticlesListPage';
-import NavBar2 from './NavBar';
+import NavBar from './NavBar';
 import NotFoundPage from './pages/NotFoundPage';
 import './assets/css/bootstrap.min.css';
 import './assets/css/owl.carousel.min.css';
@@ -29,12 +29,10 @@ import JobDetail from './pages/JobDetail';
 import JobSearch from './pages/JobSearch';
 import Login from './pages/Login';
 import Register from './pages/Register';
-class App extends Component {
-  render() {
+const App = () => {
     return (
-      <Router>
-        <div id="main" className="App">
-          <NavBar2 />
+        <div>
+          <NavBar></NavBar>
           <div>
             <Routes>
               <Route exact path="/" element={<HomePage />} />
@@ -51,9 +49,7 @@ class App extends Component {
           </div>
           <FOOTER />
         </div>
-      </Router>
     );
-  }
 }
 
 export default App;
