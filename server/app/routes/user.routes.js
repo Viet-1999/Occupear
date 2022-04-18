@@ -25,4 +25,16 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );
+
+  app.put(
+    "/api/profile/:_id", controller.update
+  )
+
+  app.get(
+    "/api/profileALL", controller.findAll
+  )
+
+  app.get(
+    "/api/profile/:_id", controller.findOne
+  )
 };
