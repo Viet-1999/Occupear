@@ -30,6 +30,7 @@ import JobSearch from './pages/JobSearch';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ProfilePage from './pages/ProfilePage';
+import EditPage from './pages/EditPage';
 const App = () => {
     return (
         <div>
@@ -46,6 +47,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path ="/profile" element={<ProfilePage />} />
+              <Route path ="/edit-profile" element={<EditPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>

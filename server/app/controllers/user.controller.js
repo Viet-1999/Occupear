@@ -42,13 +42,13 @@ exports.findOne = (req, res) => {
   User.findById(id)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found Tutorial with id " + id });
+        res.status(404).send({ message: "Not found User with id " + id });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving Tutorial with id=" + id });
+        .send({ message: "Error retrieving User with id=" + id });
     });
 };
 
@@ -64,13 +64,15 @@ exports.update = (req, res) => {
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update Tutorial with id=${id}. Maybe Tutorial was not found!`
+          message: `Cannot update User with id=${id}. Maybe User was not found!`
         });
-      } else res.send({ message: "Tutorial was updated successfully." });
+      } else res.send(
+        { message: "User was updated successfully." });
+        
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Tutorial with id=" + id
+        message: "Error updating User with id=" + id
       });
     });
 };
