@@ -6,6 +6,8 @@ import { isEmail } from "validator";
 import { useNavigate } from 'react-router-dom'
 import AuthService from "../services/auth.service";
 
+import '../styles/Register.css';
+
 const required = (value) => {
   if (!value) {
     return (

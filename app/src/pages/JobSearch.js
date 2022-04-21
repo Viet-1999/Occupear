@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../styles/JobSearch.css';
+
 const JobSearch = () => (
     <>
         {/* <<!-- slider Area Start--> */}
@@ -22,16 +24,6 @@ const JobSearch = () => (
                                 <form action="#" class="search-box">
                                     <div class="input-form">
                                         <input type="text" placeholder="Job Tittle or keyword"/>
-                                    </div>
-                                    <div class="select-form">
-                                        <div class="select-itms">
-                                            <select name="select" id="select1">
-                                                <option value="">Location BD</option>
-                                                <option value="">Location PK</option>
-                                                <option value="">Location US</option>
-                                                <option value="">Location UK</option>
-                                            </select>
-                                        </div>
                                     </div>
                                     <div class="search-form">
                                         <a href="#">Find job</a>
