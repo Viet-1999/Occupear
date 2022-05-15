@@ -6,7 +6,7 @@ const FOOTER = () => (
         <div className="footer-area footer-bg footer-padding">
             <div className="container">
                 <div className="row d-flex justify-content-between">
-                    <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                    <div>
                         <div className="single-footer-caption mb-50">
                             <div className="single-footer-caption mb-30">
                                 <div className="footer-tittle">

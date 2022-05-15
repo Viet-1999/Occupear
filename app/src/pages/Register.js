@@ -5,8 +5,7 @@ import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import { useNavigate } from 'react-router-dom'
 import AuthService from "../services/auth.service";
-
-import '../styles/Register.css';
+import "../styles/Register.css"
 
 const required = (value) => {
   if (!value) {
@@ -74,7 +73,7 @@ const Register = () => {
   };
 
   const handleRegister = (e) => {
-    
+
     e.preventDefault();
 
     setMessage("");
@@ -105,68 +104,75 @@ const Register = () => {
   };
 
   return (
-    <div className="col-md-12">
+    
+    <div className="register-container">
 
-        <Form onSubmit={handleRegister} ref={form}>
-          {!successful && (
-            <div>
-              <div className="form-group">
-                <label htmlFor="username">Username</label>
-                <Input
-                  type="text"
-                  className="form-control"
-                  name="username"
-                  value={username}
-                  onChange={onChangeUsername}
-                  validations={[required, vusername]}
-                />
-              </div>
+    <h1>Register</h1>
 
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <Input
-                  type="text"
-                  className="form-control"
-                  name="email"
-                  value={email}
-                  onChange={onChangeEmail}
-                  validations={[required, validEmail]}
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <Input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  value={password}
-                  onChange={onChangePassword}
-                  validations={[required, vpassword]}
-                />
-              </div>
-
-              <div className="form-group">
-                <button className="btn btn-primary btn-block">Sign Up</button>
-              </div>
-            </div>
-          )}
-
-          {message && (
+      <Form onSubmit={handleRegister} ref={form}>
+        {!successful && (
+          <div>
             <div className="form-group">
-              <div
-                className={
-                  successful ? "alert alert-success" : "alert alert-danger"
-                }
-                role="alert"
-              >
-                {message}
-              </div>
+              <label htmlFor="username">Username:</label>
+              <Input
+                type="text"
+                className="form-control"
+                name="username"
+                value={username}
+                onChange={onChangeUsername}
+                validations={[required, vusername]}
+              />
             </div>
-          )}
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        </Form>
-      </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email:</label>
+              <Input
+                type="text"
+                className="form-control"
+                name="email"
+                value={email}
+                onChange={onChangeEmail}
+                validations={[required, validEmail]}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password">Password:</label>
+              <Input
+                type="password"
+                className="form-control"
+                name="password"
+                value={password}
+                onChange={onChangePassword}
+                validations={[required, vpassword]}
+              />
+            </div>
+
+            <div className="form-group">
+              <button className="btn btn-primary btn-block">Sign Up</button>
+            </div>
+          </div>
+        )}
+
+        {message && (
+          <div className="form-group">
+            <div
+              className={
+                successful ? "alert alert-success" : "alert alert-danger"
+              }
+              role="alert"
+            >
+              {message}
+            </div>
+          </div>
+        )}
+        <CheckButton style={{ display: "none" }} ref={checkBtn} />
+
+        <div class="signin">
+          <p>Already have an account? <a href="/login">Sign in</a></p>
+        </div>
+      </Form>
+    </div>
   );
 };
 

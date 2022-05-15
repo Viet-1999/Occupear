@@ -1,33 +1,49 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import "../styles/JobSearch.css";
 
-import '../styles/JobSearch.css';
+const {useState} =React;
 
-const JobSearch = () => (
-    <>
-        {/* <<!-- slider Area Start--> */}
-        <div class="slider-area ">
-            {/* <!-- Mobile Menu --> */}
-            <div class="slider-active">
-                <div class="single-slider slider-height d-flex align-items-center" data-background="assets/img/hero/h1_hero.jpg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-9 col-md-10">
-                                <div class="hero__caption">
-                                    <h1>Find the most exciting startup jobs</h1>
+const JobSearch = () => {
+    const [Text,setText]=useState("");
+    const onChange = evt => setText(evt.target.value);
+
+    const onSubmit = evt =>{
+        evt.preventDefault();
+    }
+    return(
+        <div className='jobsearch-background-image'>
+        <div className="slider-area">
+            
+            <div className="slider-active">
+                <div className="single-slider slider-height d-flex align-items-center" data-background="assets/img/hero/h1_hero.jpg">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-xl-6 col-lg-9 col-md-10">
+                                <div className="hero__caption">
+                                    <h1>Find the Most Exciting Startup Jobs</h1>
                                 </div>
                             </div>
                         </div>
-                        {/* <!-- Search Box --> */}
-                        <div class="row">
-                            <div class="col-xl-8">
-                                {/* <!-- form --> */}
-                                <form action="#" class="search-box">
-                                    <div class="input-form">
-                                        <input type="text" placeholder="Job Tittle or keyword"/>
+                        
+                        <div className="row">
+                            <div className="col-xl-8">
+                                
+                                <form action="#" onSubmit={onSubmit} className="searchbox-container">
+                                    <div className="input-form">
+                                    <input type="text" 
+                                    placeholder="Job Position or Skill"
+                                    value={Text}
+                                    onChange={onChange}
+                                    />
                                     </div>
-                                    <div class="search-form">
-                                        <a href="#">Find job</a>
-                                    </div>	
+
+                                    <div className='search-button-container'>         
+                                    <button className="search-button">
+                                        <Link to={`/job-search-result2/${Text}`} >Search</Link> 
+                                    </button>	
+                                    </div>   
+                                    
                                 </form>	
                             </div>
                         </div>
@@ -35,7 +51,8 @@ const JobSearch = () => (
                 </div>
             </div>
         </div>
-    </>
+        </div>
 );
-
+};
+    
 export default JobSearch;

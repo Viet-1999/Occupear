@@ -1,0 +1,13 @@
+.homepage-container {
+    padding: 16px;
+}
+
+.homepage-background-image {
+    background-image: url("../page_images/istockphoto-508231877-170667a.jpg");
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-attachment: fixed;  
+    background-size: cover;
+}

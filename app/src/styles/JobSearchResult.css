@@ -1,0 +1,34 @@
+.job-search-box {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.job-search-button {
+    float: none;
+    width: 15%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    cursor: pointer;
+    text-align: center;
+}
+
+.filter-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.pagination {
+    display: inline-block;
+}

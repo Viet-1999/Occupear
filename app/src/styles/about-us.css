@@ -1,0 +1,126 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+  .h1{
+    text-align: center;
+  }
+
+#pre1{
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    color: LightGray;
+}
+
+#pre2{
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  color: LightGray;
+}
+
+#pre3{
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  color: LightGray;
+}
+
+#pre4{
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  color: LightGray;
+}
+
+.aboutus-container {
+   padding: 16px;
+
+}
+
+.aboutus-background-image {
+  background-image: url("../page_images/istockphoto-1086341762-612x612.jpg");
+  background-repeat: no-repeat;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+.aboutus-box {
+    border: 2px solid #FFD700;
+    padding: 50px;
+    width: 900px;
+    position: relative;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 110%;
+  }
+
+#myHeader{
+    text-align: center;
+    color: LightGray;
+  }
+
+#content{
+    word-break: break-all;
+    text-align: center;
+    color: LightGray;
+}
+
+#teamName{
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    color: LightGray;
+}
+
+#teamMem{
+    font-size: 20px;
+    text-align: center;
+    color: LightGray;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }

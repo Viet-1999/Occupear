@@ -31,6 +31,11 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import ProfilePage from './pages/ProfilePage';
 import EditPage from './pages/EditPage';
+import JobSearchResultPage from './pages/JobSearchResult';
+import JobListing2 from './components/JobListing2';
+import Recommendation from './pages/Recommendation';
+import JobSearchResult2 from './pages/JobSearchResult2';
+
 const App = () => {
     return (
         <div>
@@ -42,12 +47,16 @@ const App = () => {
               <Route path="/articles-list" element={<ArticlesListPage />} />
               <Route path="/article/:name" element={<ArticlePage />} />
               <Route path="/jobs-list" element={<JobListing />} />
-              <Route path="/job-detail" element={<JobDetail />} />
+              <Route path="/job-detail/:id" element={<JobDetail />} />
               <Route path="/job-search" element={<JobSearch />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path ="/profile" element={<ProfilePage />} />
               <Route path ="/edit-profile" element={<EditPage />} />
+              <Route path="/job-search-result/:query" element={<JobSearchResultPage />}/>
+              <Route path="/job-search-result2/:query" element={<JobSearchResult2 />}/>
+              <Route path="/joblist2" element ={<JobListing2 />} />
+              <Route path ="/recommendation" element ={<Recommendation />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>

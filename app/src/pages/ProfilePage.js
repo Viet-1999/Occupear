@@ -8,7 +8,7 @@ const ProfilePage = () => {
     <div className="container">
       <header className="jumbotron">
         <h3>
-          <strong>{currentUser.username}</strong> Profile
+          <strong>{currentUser.username}</strong>'s Profile
         </h3>
       </header>
       <div>
@@ -31,6 +31,7 @@ const ProfilePage = () => {
       <p>
         <strong>Email:</strong> {currentUser.email}
       </p>
+      <p></p>
       <strong>Authorities:</strong>
       <ul>
         {currentUser.roles &&
