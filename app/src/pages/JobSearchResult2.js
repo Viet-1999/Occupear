@@ -18,7 +18,18 @@ const JobSearchResult2 = () => {
     const [collection, setCollection] = useState(
         cloneDeep(JobData.slice(0, countPerPage))
     );
-    const [filterVal, setFilterVal] = useState(JobData.filter(item => item.positionName.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.description.toLowerCase().indexOf(query.toLowerCase()) > -1));
+    const [jobArray, setJobArray] = useState([(item => item.positionName.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.description.toLowerCase().indexOf(query.toLowerCase()) > -1)]);
+    const filteredArray = JobData.filter((item) => {
+        for (let i = 0; i < jobArray.length; i++) {
+            if (!jobArray[i](item)) {
+                return false
+            }
+        }
+        return true
+    })
+    
+    const [filterVal, setFilterVal] = useState(filteredArray);
+    
     const searchData = React.useRef(
         throttle(val => {
             const query = val.toLowerCase();
@@ -31,6 +42,7 @@ const JobSearchResult2 = () => {
         }, 400)
     );
 
+   
     useEffect(() => {
         if (!value) {
             updatePage(1);
@@ -40,10 +52,6 @@ const JobSearchResult2 = () => {
         }
     }, [value]);
 
-    useEffect(() => {
-        updatePage(currentPage)
-    }, [filterVal])
-
     const updatePage = p => {
         setCurrentPage(p);
         const to = countPerPage * p;
@@ -51,6 +59,16 @@ const JobSearchResult2 = () => {
         setCollection(cloneDeep(filterVal.slice(from, to)));
 
     };
+
+    useEffect(()=>{
+        setFilterVal(filteredArray)
+    },[jobArray])
+    useEffect(() => {
+        updatePage(currentPage)
+    }, [filterVal])
+
+
+
     return (
         <>
             <div className="header"></div>
@@ -67,7 +85,9 @@ const JobSearchResult2 = () => {
             </div>
             
             <div className="filter-button-wrapper">
-            <button onClick={() => { setFilterVal(filterVal.filter(item => item.location.toLowerCase().indexOf("Hà Nội".toLowerCase()) > -1)) }}>Hà Nội</button>
+           
+           <button className='button-styling' onClick={() => { setFilterVal(filterVal)}}> Hà Nội</button>
+           <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.description.toLowerCase().indexOf("react".toLowerCase()) > -1 || item.positionName.toLowerCase().indexOf("react".toLowerCase()) > -1)])}}> react</button>
             </div>
             
             <div className="jobs">
@@ -93,7 +113,7 @@ const JobSearchResult2 = () => {
                                 item.skills.map((skill, index) => {
                                     return (
                                         <span key={index}>
-                                            {skill}
+                                            <div onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.description.toLowerCase().indexOf(JSON.parse(JSON.stringify(skill))) > -1 || item.positionName.toLowerCase().indexOf(JSON.parse(JSON.stringify(skill))) > -1)])}}> {skill}</div>
                                         </span>
                                     )
                                 })

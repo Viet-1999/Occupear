@@ -1,6 +1,6 @@
  export const JobData= [
   {
-    positionName: "shitFRONTEND (REACTJS, NODEJS) DEVELOPER ---> ( HCL Technologies ))",
+    positionName: "FRONTEND (REACTJS, NODEJS) DEVELOPER ---> ( HCL Technologies ))",
     salary: null,
     company: "Nhà tuyển dụng",
     location: "Hà Nội",
