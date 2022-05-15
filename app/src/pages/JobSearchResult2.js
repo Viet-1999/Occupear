@@ -21,17 +21,33 @@ const JobSearchResult2 = () => {
     );
     const [jobArray, setJobArray] = useState([(item => item.positionName.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.description.toLowerCase().indexOf(query.toLowerCase()) > -1)]);
     const [jobArrayDisplay, setJobArrayDisplay] = useState([]);
-    const uniquejobArrayDisplay = [...new Set(jobArrayDisplay.map(item => item))];
+    let uniquejobArray = [...new Set(jobArray.map(item => item))];
+    let uniquejobArrayDisplay = [...new Set(jobArrayDisplay.map(item => item))];
     const filteredArray = JobData.filter((item) => {
-        for (let i = 0; i < jobArray.length; i++) {
-            if (!jobArray[i](item)) {
+        for (let i = 0; i < uniquejobArray.length; i++) {
+            if (!uniquejobArray[i](item)) {
                 return false
             }
         }
         return true
     })
-
     const [filterVal, setFilterVal] = useState(filteredArray);
+    const handleRemoveFilter = (index) => {
+        let reducedArr = [...uniquejobArray];
+        let reducedArr2 = [...uniquejobArrayDisplay];
+        reducedArr.splice(index, 1);
+        reducedArr2.splice(index, 1);
+        setJobArray(reducedArr);
+        setJobArrayDisplay(reducedArr2);
+        if (reducedArr.length >0){
+            setFilterVal(filteredArray);
+        }
+        if (reducedArr.length = 0){
+            setJobArrayDisplay([]);
+            setJobArray([(item => item.positionName.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.description.toLowerCase().indexOf(query.toLowerCase()) > -1)]);
+            setFilterVal(filteredArray);
+        }
+    }
 
     const searchData = React.useRef(
         throttle(val => {
@@ -45,13 +61,13 @@ const JobSearchResult2 = () => {
         }, 400)
     );
 
-
     useEffect(() => {
         if (!value) {
             updatePage(1);
         }
         else {
             searchData.current(value);
+            
         }
     }, [value]);
 
@@ -66,6 +82,7 @@ const JobSearchResult2 = () => {
     useEffect(() => {
         setFilterVal(filteredArray)
     }, [jobArray])
+
     useEffect(() => {
         updatePage(currentPage)
     }, [filterVal])
@@ -95,12 +112,15 @@ const JobSearchResult2 = () => {
                                 return (
                                     <li key={id}>
                                         {item}
-                                        <button className="close" onClick={() => {}}>
+                                        <button className="close" onClick={() => {
+                                            handleRemoveFilter(id);
+                                        }}>
                                             <img src={close} alt="" />
                                         </button>
                                     </li>
                                 );
-                            })}
+                            })
+                        }
                         <a href="#" onClick={() => { setJobArrayDisplay([]); setJobArray([(item => item.positionName.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.description.toLowerCase().indexOf(query.toLowerCase()) > -1)]) }}>
                             Clear
                         </a>
@@ -114,10 +134,10 @@ const JobSearchResult2 = () => {
             </div>
 
             <div className="jobs">
-                <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Hồ Chí Minh".toLowerCase()) > -1)]) }}> Hồ Chí Minh</button>
-                <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Hà Nội".toLowerCase()) > -1)]) }}> Hà Nội</button>
-                <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Đà Nẵng".toLowerCase()) > -1)]) }}> Đà Nẵng</button>
-                <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Nghệ An".toLowerCase()) > -1)]) }}> Nghệ An</button>
+                <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Hồ Chí Minh".toLowerCase()) > -1)]); setJobArrayDisplay(prevArray => [...prevArray, "Hồ Chí Minh".toLowerCase()]) }}> Hồ Chí Minh</button>
+                <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Hà Nội".toLowerCase()) > -1)]); setJobArrayDisplay(prevArray => [...prevArray, "Hà Nội".toLowerCase()]) }}> Hà Nội</button>
+                <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Đà Nẵng".toLowerCase()) > -1)]); setJobArrayDisplay(prevArray => [...prevArray, "Đà Nẵng".toLowerCase()]) }}> Đà Nẵng</button>
+                <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Nghệ An".toLowerCase()) > -1)]); setJobArrayDisplay(prevArray => [...prevArray, "Nghệ An".toLowerCase()]) }}> Nghệ An</button>
                 {collection.map((item, key) =>
 
                     <div className="job-container job-container--borderLeft" >
@@ -140,9 +160,10 @@ const JobSearchResult2 = () => {
                                 item.skills.map((skill, index) => {
                                     return (
                                         <span key={index}>
-                                            <div 
-                                            onClick={() => { 
-                                                setJobArray(prevArray => [...prevArray, (item => item.description.toLowerCase().indexOf(JSON.parse(JSON.stringify(skill))) > -1 || item.positionName.toLowerCase().indexOf(JSON.parse(JSON.stringify(skill))) > -1)]); setJobArrayDisplay(prevArray => [...prevArray, JSON.parse(JSON.stringify(skill))]) }}> {skill}
+                                            <div
+                                                onClick={() => {
+                                                    setJobArray(prevArray => [...prevArray, (item => item.description.toLowerCase().indexOf(JSON.parse(JSON.stringify(skill))) > -1 || item.positionName.toLowerCase().indexOf(JSON.parse(JSON.stringify(skill))) > -1)]); setJobArrayDisplay(prevArray => [...prevArray, JSON.parse(JSON.stringify(skill))])
+                                                }}> {skill}
                                             </div>
                                         </span>
                                     )
