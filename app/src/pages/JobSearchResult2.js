@@ -7,6 +7,7 @@ import "rc-pagination/assets/index.css";
 import { JobData } from "./output";
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/JobSearchResult.css';
+import close from "../page_images/icon-remove.svg";
 
 const JobSearchResult2 = () => {
     const { query } = useParams();
@@ -19,6 +20,8 @@ const JobSearchResult2 = () => {
         cloneDeep(JobData.slice(0, countPerPage))
     );
     const [jobArray, setJobArray] = useState([(item => item.positionName.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.description.toLowerCase().indexOf(query.toLowerCase()) > -1)]);
+    const [jobArrayDisplay, setJobArrayDisplay] = useState([]);
+    const uniquejobArrayDisplay = [...new Set(jobArrayDisplay.map(item => item))];
     const filteredArray = JobData.filter((item) => {
         for (let i = 0; i < jobArray.length; i++) {
             if (!jobArray[i](item)) {
@@ -27,9 +30,9 @@ const JobSearchResult2 = () => {
         }
         return true
     })
-    
+
     const [filterVal, setFilterVal] = useState(filteredArray);
-    
+
     const searchData = React.useRef(
         throttle(val => {
             const query = val.toLowerCase();
@@ -42,7 +45,7 @@ const JobSearchResult2 = () => {
         }, 400)
     );
 
-   
+
     useEffect(() => {
         if (!value) {
             updatePage(1);
@@ -60,9 +63,9 @@ const JobSearchResult2 = () => {
 
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         setFilterVal(filteredArray)
-    },[jobArray])
+    }, [jobArray])
     useEffect(() => {
         updatePage(currentPage)
     }, [filterVal])
@@ -80,17 +83,41 @@ const JobSearchResult2 = () => {
                     onChange={e => setSearchVal(e.target.value)}
                 />
                 <div className="job-search-button" >
-                <a onClick={() => { window.location.href = `/job-search-result2/${searchVal}` }}>Search</a>
+                    <a onClick={() => { window.location.href = `/job-search-result2/${searchVal}` }}>Search</a>
                 </div>
             </div>
-            
+
             <div className="filter-button-wrapper">
-           
-           <button className='button-styling' onClick={() => { setFilterVal(filterVal)}}> Hà Nội</button>
-           <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.description.toLowerCase().indexOf("react".toLowerCase()) > -1 || item.positionName.toLowerCase().indexOf("react".toLowerCase()) > -1)])}}> react</button>
+                <div className="header-container">
+                    <ul>
+                        {
+                            uniquejobArrayDisplay.map((item, id) => {
+                                return (
+                                    <li key={id}>
+                                        {item}
+                                        <button className="close" onClick={() => {}}>
+                                            <img src={close} alt="" />
+                                        </button>
+                                    </li>
+                                );
+                            })}
+                        <a href="#" onClick={() => { setJobArrayDisplay([]); setJobArray([(item => item.positionName.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.description.toLowerCase().indexOf(query.toLowerCase()) > -1)]) }}>
+                            Clear
+                        </a>
+                    </ul>
+                </div>
+
+                <div>
+
+                </div>
+
             </div>
-            
+
             <div className="jobs">
+                <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Hồ Chí Minh".toLowerCase()) > -1)]) }}> Hồ Chí Minh</button>
+                <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Hà Nội".toLowerCase()) > -1)]) }}> Hà Nội</button>
+                <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Đà Nẵng".toLowerCase()) > -1)]) }}> Đà Nẵng</button>
+                <button onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Nghệ An".toLowerCase()) > -1)]) }}> Nghệ An</button>
                 {collection.map((item, key) =>
 
                     <div className="job-container job-container--borderLeft" >
@@ -113,7 +140,10 @@ const JobSearchResult2 = () => {
                                 item.skills.map((skill, index) => {
                                     return (
                                         <span key={index}>
-                                            <div onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.description.toLowerCase().indexOf(JSON.parse(JSON.stringify(skill))) > -1 || item.positionName.toLowerCase().indexOf(JSON.parse(JSON.stringify(skill))) > -1)])}}> {skill}</div>
+                                            <div 
+                                            onClick={() => { 
+                                                setJobArray(prevArray => [...prevArray, (item => item.description.toLowerCase().indexOf(JSON.parse(JSON.stringify(skill))) > -1 || item.positionName.toLowerCase().indexOf(JSON.parse(JSON.stringify(skill))) > -1)]); setJobArrayDisplay(prevArray => [...prevArray, JSON.parse(JSON.stringify(skill))]) }}> {skill}
+                                            </div>
                                         </span>
                                     )
                                 })
@@ -124,13 +154,13 @@ const JobSearchResult2 = () => {
                 )}
             </div>
             <div className="center">
-            <Pagination
-                className="pagination"
-                pageSize={countPerPage}
-                onChange={updatePage}
-                current={currentPage}
-                total={filterVal.length}
-            />
+                <Pagination
+                    className="pagination"
+                    pageSize={countPerPage}
+                    onChange={updatePage}
+                    current={currentPage}
+                    total={filterVal.length}
+                />
             </div>
         </>
     );
