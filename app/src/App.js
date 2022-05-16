@@ -31,10 +31,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import ProfilePage from './pages/ProfilePage';
 import EditPage from './pages/EditPage';
-import JobSearchResultPage from './pages/JobSearchResult';
-import JobListing2 from './components/JobListing2';
 import Recommendation from './pages/Recommendation';
-import JobSearchResult2 from './pages/JobSearchResult2';
+import JobSearchResult from './pages/JobSearchResult';
 
 const App = () => {
     return (
@@ -53,9 +51,7 @@ const App = () => {
               <Route path="/register" element={<Register />} />
               <Route path ="/profile" element={<ProfilePage />} />
               <Route path ="/edit-profile" element={<EditPage />} />
-              <Route path="/job-search-result/:query" element={<JobSearchResultPage />}/>
-              <Route path="/job-search-result2/:query" element={<JobSearchResult2 />}/>
-              <Route path="/joblist2" element ={<JobListing2 />} />
+              <Route path="/job-search-result/:query" element={<JobSearchResult />}/>
               <Route path ="/recommendation" element ={<Recommendation />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

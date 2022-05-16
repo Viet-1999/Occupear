@@ -40,7 +40,7 @@ const JobSearch = () => {
 
                                     <div className='search-button-container'>         
                                     <button className="search-button">
-                                        <Link to={`/job-search-result2/${Text}`} >Search</Link> 
+                                        <Link to={`/job-search-result/${Text}`} >Search</Link> 
                                     </button>	
                                     </div>   
                                     
