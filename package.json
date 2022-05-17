@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd app && npm start",
-  "backend": "cd server && npm start",
-  "dev": "concurrently \"npm run backend\" \"npm run client\""
+    "backend": "cd server && npm start",
+    "dev": "concurrently \"npm run backend\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Viet-1999/Occupear/issues"
   },
-  "homepage": "https://github.com/Viet-1999/Occupear#readme"
+  "homepage": "https://github.com/Viet-1999/Occupear#readme",
+  "dependencies": {
+    "concurrently": "^7.2.0"
+  }
 }

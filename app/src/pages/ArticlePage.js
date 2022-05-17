@@ -23,10 +23,10 @@ const ArticlePage = () => {
                 {article.content.map((paragraph, key) => (
                     <p key={key}>{paragraph}</p>
                 ))}
-                </div>
                 <p></p>
                 <h3>Other Articles:</h3>
                 <ArticlesList articles={otherArticles} />
+                </div>
             </div>
             </div>
         </>

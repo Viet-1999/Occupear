@@ -5,37 +5,11 @@ body {
     text-align: center;
   }
 
-#pre1{
-    font-weight: bold;
-    font-size: 30px;
-    text-align: center;
-    color: LightGray;
-}
-
-#pre2{
+#section-title{
   font-weight: bold;
   font-size: 30px;
   text-align: center;
-  color: LightGray;
-}
-
-#pre3{
-  font-weight: bold;
-  font-size: 30px;
-  text-align: center;
-  color: LightGray;
-}
-
-#pre4{
-  font-weight: bold;
-  font-size: 30px;
-  text-align: center;
-  color: LightGray;
-}
-
-.aboutus-container {
-   padding: 16px;
-
+  color: blue;
 }
 
 .aboutus-background-image {
@@ -62,26 +36,26 @@ body {
 
 #myHeader{
     text-align: center;
-    color: LightGray;
+    color: white;
   }
 
 #content{
     word-break: break-all;
     text-align: center;
-    color: LightGray;
+    color: black;
 }
 
 #teamName{
     font-weight: bold;
     font-size: 30px;
     text-align: center;
-    color: LightGray;
+    color: blue;
 }
 
 #teamMem{
     font-size: 20px;
     text-align: center;
-    color: LightGray;
+    color: cyan;
 }
 
 img{
@@ -124,3 +98,15 @@ img{
     font-size: 36px;
     margin-left: 50px;
   }
+
+.section-body {
+  line-height: 1.8;
+  border-style: solid;
+  border: 2px solid #FFD700;
+  background-color: gray;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  opacity:0.9;
+}

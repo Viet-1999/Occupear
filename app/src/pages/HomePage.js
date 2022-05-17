@@ -8,6 +8,7 @@ const HomePage = () => (
     <>
         <div className='homepage-background-image'>
         <div className = "homepage-container">
+        <div className='homepage-body'>
         <h1 style={{ textAlign: 'center'}}>Occupear</h1>
         <div style={{ textAlign: 'center' }}>
             <a className="btn" href = "/recommendation">Job Recommendation</a>
@@ -15,6 +16,7 @@ const HomePage = () => (
 
         <div id ="page-body" style={{ textAlign: 'center'}}>
             <ArticlesList articles={articleContent} />
+        </div>
         </div>
         </div>
         </div>

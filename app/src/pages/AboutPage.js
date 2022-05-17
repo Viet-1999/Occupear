@@ -6,10 +6,11 @@ const AboutPage = () => (
     <>
     <div className='aboutus-background-image'>
         <div className="aboutus-container">
+        <div className='section-body'>
             <div id="myHeader">
                 <h1>About Us</h1>
             </div>
-            <pre id="pre1">What is Occupear?</pre>
+            <h2 id="section-title">What is Occupear?</h2>
             <div className="aboutus-box">
                 <p id="content">This is a paragraph
                 </p>
@@ -17,7 +18,7 @@ const AboutPage = () => (
 
             <p></p>
 
-            <pre id="pre2">How We Came Up with Occupear</pre>
+            <h2 id="section-title">How We Came Up with Occupear</h2>
             <div className="aboutus-box">
                 <p id="content">This is a paragraph
                 </p>
@@ -25,19 +26,20 @@ const AboutPage = () => (
 
             <p></p>
 
-            <pre id="pre3">Purpose of Occupear</pre>
+            <h2 id="section-title">Purpose of Occupear</h2>
             <div className="aboutus-box">
                 <p id="content">This is a paragraph</p>
             </div>
 
             <p></p>
 
-            <pre id="pre4">Benefits of Occupear</pre>
+            <h2 id="section-title">Benefits of Occupear</h2>
             <div className="aboutus-box">
                 <p id="content">The job finding project could help students and fresh graduates to choose which job they wanted or needed to take in order to earn some money for their relatives they care and love. However, sometimes they do not like the jobs they want to take for various reasons, such as not having required skills, not being old enough, the career path is difficult for them to take and many more. To solve this problem, we could create a recommendation feature that offers recommended jobs they could take through asking the questions in terms of their age, skills they need, skills they learned and many more</p>
             </div>
 
             <p></p>
+
 
             <h2 id="teamName">The Team</h2>
             <br />
@@ -70,6 +72,7 @@ const AboutPage = () => (
             <div className="aboutus-box">
                 <p id="content">My name is Vu Gia Thinh. I am currently a member working on this project and I major in data analytics. My goal in this project is to produce a well-functioning product given the time constraints. I am familiar with some programming languages such as Python, C, C++, Java. However, this project requires knowledge of script languages, more specifically, ReactJS and NodeJS which I have no prior knowledge of. Although I have participated in a fundamental Web-programming course so I think I can grab the basics of this project. I am excited to learn more and elaborate with everyone in this project with these brand-new languages.</p>
             </div>
+        </div>
         </div>
         </div>
     </>
