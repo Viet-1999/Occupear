@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm start --prefix server",
     "clientInstall":"cd app && npm install",
     "client": "cd app && npm install && npm start",
     "backendInstall": "cd server && npm install",
