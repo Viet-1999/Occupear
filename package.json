@@ -9,7 +9,7 @@
     "client": "cd app && npm install && npm start",
     "backendInstall": "cd server && npm install",
     "backend": "cd server && npm install && npm start",
-    "start": "cd server && npm install && nodemon server.js && cd ..",
+    "start": "cd server && npm install && npm start && cd ..",
     "heroku-postbuild": "cd app && npm install && npm run build",
     "dev": "concurrently \"npm run backend\" \"npm run client\""
   },
