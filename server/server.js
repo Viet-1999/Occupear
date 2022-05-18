@@ -59,8 +59,9 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 // simple route
-app.get("/123", (req, res) => {
-  res.json({ message: "App is working on ${PORT}. " });
+app.get("/123", PORT, (req, res) => {
+  res.json({ message: "App is working on " });
+  console.log(`Server is running on port ${PORT}.`);
 });
 function initial() {
   Role.estimatedDocumentCount((err, count) => {
