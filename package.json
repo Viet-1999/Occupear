@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "clientInstall":"cd app && npm install",
     "client": "cd app && npm install && npm start",
-    "backend": "cd server && npm install && nodemon server.js",
-    "dev": "concurrently \"npm run backend\" \"npm run client\""
+    "backendInstall": "cd server && npm install",
+    "backend": "cd server && npm install && npm start",
+    "dev": "concurrently \"npm run clientInstall\" \"npm run backendInstall\" \"npm run backend\" \"npm run client\""
   },
   "repository": {
     "type": "git",
