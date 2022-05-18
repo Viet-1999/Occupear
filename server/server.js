@@ -37,7 +37,7 @@ const path = require("path");
 
 if (process.env.NODE_ENV === "production") {
 
-    app.use(express.static("./app/build"));
+    app.use(express.static("../app/build"));
 
     app.get("*", (req, res) => {
 
