@@ -7,11 +7,13 @@ const Recommendation = () => {
     const [question2, setQuestion2] = useState(false);
     const [jobArray, setJobArray] = useState([]);
     const [question2confirmation, setquestion2confirmation] = useState(false);
-
+    // const [jobArrayDisplay, setJobArrayDisplay] = useState([]);
+    // let uniquejobArrayDisplay = [...new Set(jobArrayDisplay.map(item => item))];
+    let uniquejobArray = [...new Set(jobArray.map(item => item))];
 
     const filteredArray = JobData.filter((item) => {
-        for (let i = 0; i < jobArray.length; i++) {
-            if (!jobArray[i](item)) {
+        for (let i = 0; i < uniquejobArray.length; i++) {
+            if (!uniquejobArray[i](item)) {
                 return false
             }
         }
@@ -21,6 +23,7 @@ const Recommendation = () => {
         <>
             <div className='recommendation-background-image'>
             <div className="recommendation-container">
+
                 {
                     (() => {
                         if (question1) {
@@ -112,7 +115,7 @@ const Recommendation = () => {
                                 {/* <ul>
                                     {JobData.filter(item => item.positionName.toLowerCase()().indexOf(jobArray[0]) > -1).map((item, key) => <li key={key}>{item.positionName}</li>)}
                                 </ul> */}
-                                <h1>Results: {filteredArray.length} Jobs Searched</h1>
+                                <h1>Results: {filteredArray.length} Suitable Jobs Found</h1>
                                 <p></p>
                                 <ul>
                                     {/* {jobArrayFiltered.map((item, key) => <li key={key}>{item.positionName}</li>)} */}

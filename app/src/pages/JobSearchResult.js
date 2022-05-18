@@ -100,7 +100,7 @@ const JobSearchResult = () => {
                     onChange={e => setSearchVal(e.target.value)}
                 />
                 <div className="job-search-button" >
-                    <a onClick={() => { window.location.href = `/job-search-result2/${searchVal}` }}>Search</a>
+                    <a onClick={() => { window.location.href = `/job-search-result/${searchVal}` }}>Search</a>
                 </div>
             </div>
 
