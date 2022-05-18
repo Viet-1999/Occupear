@@ -33,10 +33,24 @@ db.mongoose
     process.exit();
   });
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "App is working" });
-});
+const path = require("path");
+
+if (process.env.NODE_ENV === "production") {
+
+    app.use(express.static("./app/build"));
+
+    app.get("*", (req, res) => {
+
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+
+   });
+
+}
+
+// // simple route
+// app.get("/", (req, res) => {
+//   res.json({ message: "App is working" });
+// });
 
 // routes
 require("./app/routes/auth.routes")(app);
