@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd app && npm start",
     "backend": "cd server && nodemon server.js",
-    "heroku-postbuild": "npm install",
     "dev": "concurrently \"npm run backend\" \"npm run client\""
   },
   "repository": {
@@ -19,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Viet-1999/Occupear/issues"
   },
-  "homepage": "https://github.com/Viet-1999/Occupear#readme"
+  "homepage": "https://github.com/Viet-1999/Occupear#readme",
+  "dependencies": {
+    "concurrently": "^7.2.0"
+  }
 }
