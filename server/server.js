@@ -47,10 +47,7 @@ if (process.env.NODE_ENV === "production") {
 
 }
 
-// // simple route
-// app.get("/", (req, res) => {
-//   res.json({ message: "App is working" });
-// });
+
 
 // routes
 require("./app/routes/auth.routes")(app);
@@ -61,7 +58,10 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
+// simple route
+app.get("/123", (req, res) => {
+  res.json({ message: "App is working on ${PORT}. " });
+});
 function initial() {
   Role.estimatedDocumentCount((err, count) => {
     if (!err && count === 0) {
