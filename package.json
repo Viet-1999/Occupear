@@ -9,8 +9,8 @@
     "client": "cd app && npm run build",
     "backend": "cd server && npm start",
     "start": "npm start --prefix server",
-    "install-client": "cd app && npm install && npm run build --prefix client && cd ..",
-    "install-server": "cd server && npm install && cd .. ",
+    "install-client": "cd app && npm install --prefix app && npm run build --prefix app && cd ..",
+    "install-server": "cd server && npm install --prefix serve && cd .. ",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-client && npm run install-server",
     "dev": "concurrently \"npm run backend\" \"npm run client\""
   },
