@@ -1,17 +1,22 @@
-const config = require("../config/auth.config");
-const db = require("../models");
+const config = require('../config/auth.config');
+const db = require('../models');
 const User = db.user;
 const Role = db.role;
 
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
+var jwt = require('jsonwebtoken');
+var bcrypt = require('bcryptjs');
 
 exports.signup = (req, res) => {
   const user = new User({
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
-    firstName: "Default Name",
+    firstName: 'Default Name',
+    phoneNumber: '',
+    address: '',
+    town: '',
+    country: '',
+    imageFile: '',
   });
 
   user.save((err, user) => {
@@ -23,7 +28,7 @@ exports.signup = (req, res) => {
     if (req.body.roles) {
       Role.find(
         {
-          name: { $in: req.body.roles }
+          name: { $in: req.body.roles },
         },
         (err, roles) => {
           if (err) {
@@ -31,32 +36,32 @@ exports.signup = (req, res) => {
             return;
           }
 
-          user.roles = roles.map(role => role._id);
-          user.save(err => {
+          user.roles = roles.map((role) => role._id);
+          user.save((err) => {
             if (err) {
               res.status(500).send({ message: err });
               return;
             }
 
-            res.send({ message: "User was registered successfully!" });
+            res.send({ message: 'User was registered successfully!' });
           });
         }
       );
     } else {
-      Role.findOne({ name: "user" }, (err, role) => {
+      Role.findOne({ name: 'user' }, (err, role) => {
         if (err) {
           res.status(500).send({ message: err });
           return;
         }
 
         user.roles = [role._id];
-        user.save(err => {
+        user.save((err) => {
           if (err) {
             res.status(500).send({ message: err });
             return;
           }
 
-          res.send({ message: "User was registered successfully!" });
+          res.send({ message: 'User was registered successfully!' });
         });
       });
     }
@@ -65,9 +70,9 @@ exports.signup = (req, res) => {
 
 exports.signin = (req, res) => {
   User.findOne({
-    username: req.body.username
+    username: req.body.username,
   })
-    .populate("roles", "-__v")
+    .populate('roles', '-__v')
     .exec((err, user) => {
       if (err) {
         res.status(500).send({ message: err });
@@ -75,7 +80,7 @@ exports.signin = (req, res) => {
       }
 
       if (!user) {
-        return res.status(404).send({ message: "User Not found." });
+        return res.status(404).send({ message: 'User Not found.' });
       }
 
       var passwordIsValid = bcrypt.compareSync(
@@ -86,27 +91,31 @@ exports.signin = (req, res) => {
       if (!passwordIsValid) {
         return res.status(401).send({
           accessToken: null,
-          message: "Invalid Password!"
+          message: 'Invalid Password!',
         });
       }
 
       var token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 86400 // 24 hours
+        expiresIn: 86400, // 24 hours
       });
 
       var authorities = [];
 
       for (let i = 0; i < user.roles.length; i++) {
-        authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
+        authorities.push('ROLE_' + user.roles[i].name.toUpperCase());
       }
-      res.status(200).send(
-        {
+      res.status(200).send({
         id: user._id,
         username: user.username,
         email: user.email,
         firstName: user.firstName,
+        phoneNumber: user.phoneNumber,
+        address: user.address,
+        town: user.town,
+        country: user.country,
         roles: authorities,
-        accessToken: token
+        accessToken: token,
+        imageFile: user.imageFile,
       });
     });
 };
