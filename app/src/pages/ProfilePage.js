@@ -23,10 +23,10 @@ const ProfilePage = () => {
         <strong>Id:</strong> {currentUser.id}
       </p>
       <p>
-        <strong>Name:</strong> {currentUser.username}
+        <strong>User Name:</strong> {currentUser.username}
       </p>
       <p>
-        <strong>Name:</strong> {currentUser.firstName}
+        <strong>First Name:</strong> {currentUser.firstName}
       </p>
       <p>
         <strong>Email:</strong> {currentUser.email}
