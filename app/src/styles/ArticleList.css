@@ -1,0 +1,21 @@
+.articlelist-background-image {
+    background-image: url("../page_images/photo-1457369804613-52c61a468e7d.jpg");
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-attachment: fixed;  
+    background-size: cover;  
+}
+
+.articlelist-body {
+    line-height: 1.8;
+    border-style: solid;
+    border: 2px solid #FFD700;
+    background-color: gray;
+    padding-top: 0px;
+    padding-right: 60px;
+    padding-bottom: 0px;
+    padding-left: 60px;
+    opacity:0.9;
+}

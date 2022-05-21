@@ -1,0 +1,74 @@
+.recommendation-container {
+    font-family: Verdana;
+    text-align: center;
+}
+
+.recommendation-background-image {
+    background-image: url("../page_images/How to Run a Good Review Site Here are a Few Tips for You.jpg");
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-attachment: fixed;  
+    background-size: cover;  
+}
+
+.button-styling {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-sizing: content-box;
+}
+
+.jobdetails-styling{
+    text-align: left;
+}
+
+.confimationbutton-styling{
+    background-color: #FFD700;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-sizing: content-box;
+}
+
+ol.jobdetails-list-style {
+    line-height: 1.8;
+    border-style: solid;
+    list-style-type: lower-alpha;
+    border: 2px solid #FFD700;
+    color: green;
+}
+
+h1{
+    color: #0b1c39;
+}
+
+h2 {
+    color: white
+}
+
+.recommendation-body {
+    line-height: 1.8;
+    border-style: solid;
+    border: 2px solid #FFD700;
+    background-color: gray;
+    padding-top: 0px;
+    padding-right: 80px;
+    padding-bottom: 0px;
+    padding-left: 80px;
+    opacity:0.9;
+}

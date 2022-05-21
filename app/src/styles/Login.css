@@ -1,0 +1,42 @@
+h1 {
+    text-align: center;
+}
+
+.login-container {
+    padding: 16px;
+  }
+
+input[type=username], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+  }
+
+input[type=username]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+.loginbutton {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.loginbutton:hover  {
+    opacity:1;
+  }
+
+a {
+    color: dodgerblue;
+  }
+
+.register {
+    text-align: center;
+  }

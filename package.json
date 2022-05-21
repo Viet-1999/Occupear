@@ -1,0 +1,30 @@
+{
+  "name": "occupear",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clientInstall":"cd app && npm install",
+    "client": "cd app && npm start",
+    "backend": "cd server && npm start",
+    "start": "npm start --prefix server",
+    "install-client": "cd app && npm install  && npm run build  && cd ..",
+    "install-server": "cd server && npm install && cd .. ",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-client && npm run install-server",
+    "dev": "concurrently \"npm run backend\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Viet-1999/Occupear.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Viet-1999/Occupear/issues"
+  },
+  "homepage": "https://github.com/Viet-1999/Occupear#readme",
+  "dependencies": {
+    "concurrently": "^7.2.0"
+  }
+}
