@@ -7,7 +7,7 @@
 
 .search-button {
     position: absolute;
-    left: 65.4%;
+    left: 65.5%;
     top: 9.5%;
     height: 70%;
     padding: 10px 25px;
@@ -22,4 +22,16 @@
     margin-right: auto;
     background-attachment: fixed;  
     background-size: cover;   
+}
+
+.slider-area {
+    line-height: 1.8;
+    border-style: solid;
+    border: 2px solid #FFD700;
+    background-color: gray;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    opacity:0.9;
 }

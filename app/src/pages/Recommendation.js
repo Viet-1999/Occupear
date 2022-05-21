@@ -28,7 +28,7 @@ const Recommendation = () => {
                     (() => {
                         if (question1) {
                             return (
-                                <div>
+                                <div className='recommendation-body'>
                                     <div>Question 1: Choose a Location You are Currently Living</div>
                                     <button className='button-styling' onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Hồ Chí Minh".toLowerCase()) > -1)]); setQuestion1(false); setQuestion2(true) }}> Hồ Chí Minh</button>
                                     <button className='button-styling' onClick={() => { setJobArray(prevArray => [...prevArray, (item => item.location.toLowerCase().indexOf("Hà Nội".toLowerCase()) > -1)]); setQuestion1(false); setQuestion2(true) }}> Hà Nội</button>
@@ -40,7 +40,7 @@ const Recommendation = () => {
                         }
                         if (question2) {
                             return (
-                                <div>
+                                <div className='recommendation-body'>
                                     <div>Question 2: Choose a Category</div>
                                     <p></p>
                                     <div>Programming Languages</div>
@@ -108,7 +108,7 @@ const Recommendation = () => {
                             )
                         }
                         else {
-                            return <div>
+                            return <div className='recommendation-body'>
                                 {/* <ul>
                                     {JobData.map((item,key) => <li key={key}>{item.positionName}</li>)}
                                 </ul> */}

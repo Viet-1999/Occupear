@@ -54,9 +54,21 @@ ol.jobdetails-list-style {
 }
 
 h1{
-    color: green;
+    color: #0b1c39;
 }
 
 h2 {
-    color: green;
+    color: white
+}
+
+.recommendation-body {
+    line-height: 1.8;
+    border-style: solid;
+    border: 2px solid #FFD700;
+    background-color: gray;
+    padding-top: 0px;
+    padding-right: 80px;
+    padding-bottom: 0px;
+    padding-left: 80px;
+    opacity:0.9;
 }
