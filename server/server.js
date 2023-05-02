@@ -20,7 +20,7 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb+srv://myuser:123@cluster0.tblqg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {
+  .connect(`mongodb+srv://myuser:123@cluster0.g8npczz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
